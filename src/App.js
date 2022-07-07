@@ -10,6 +10,7 @@ function App() {
   function newgame(){
     setrandomnum(Math.floor(Math.random()*100))
     settrynum(0)
+    settrylog("")
   }
   function change() {
     var num = Number(prompt())
