@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
 function App() {
+  var num 
+  const [randomnum, setrandomnum] = React.useState(0)
+  const [updown, setupdown] = React.useState("")
+  function newgame(){
+    setrandomnum(Math.floor(Math.random()*100))
+  }
+  function change() {
+    var num = Number(prompt())
+    console.log(num, randomnum)
+    if(num < randomnum){
+      setupdown("up")
+    }
+    else if(num > randomnum){
+      setupdown("down")
+    }
+    else if(num === randomnum){
+      setupdown("correct")
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{updown}</h1>
+      <button onClick={change}>input</button>
+      <button onClick={newgame}>new game</button>
     </div>
   );
 }
